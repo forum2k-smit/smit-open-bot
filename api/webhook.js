@@ -1,5 +1,7 @@
 // Require our Telegram helper package
 const TelegramBot = require("node-telegram-bot-api");
+require('dotenv').config()
+
 
 // Export as an asynchronous function
 // We'll wait until we've responded to the user
@@ -28,6 +30,8 @@ module.exports = async (request, response) => {
 
       // Send our new message back in Markdown and
       // wait for the request to finish
+      console.log(message);
+      
       await bot.sendMessage(id, message, { parse_mode: "Markdown" });
     }
   } catch (error) {
