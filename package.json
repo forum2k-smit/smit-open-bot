@@ -23,7 +23,8 @@
   "homepage": "https://github.com/dept-it-smit/smit-open-bot#readme",
   "dependencies": {
     "dotenv": "^16.0.2",
-    "node-telegram-bot-api": "^0.59.0"
+    "node-telegram-bot-api": "^0.59.0",
+    "sib-api-v3-sdk": "^8.4.2"
   },
   "devDependencies": {
     "ngrok": "^4.3.3"
