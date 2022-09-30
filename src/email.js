@@ -29,7 +29,7 @@ function sendAuthEmail(message) {
   };
   const receivers = [
     {
-      email: "rishabh12536@gmail.com",
+      email: message,
     },
   ];
 

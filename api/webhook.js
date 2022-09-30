@@ -1,6 +1,5 @@
 // Require our Telegram helper package
 const TelegramBot = require("node-telegram-bot-api");
-const { sendAuthEmail  } = require("../src/email");
 const { commands } = require("../src/command-book");
 require("dotenv").config();
 
@@ -20,22 +19,23 @@ module.exports = async (request, response) => {
     if (body.message) {
       // Retrieve the ID for this chat
       // and the text that the user sent
-      console.log(body);
+
       const {
         chat: { id },
         text,
       } = body.message;
 
-      if(text.charAt(0) === '/'){
-        commands(text)
-      }
-      // Create a message to send back
-      // We can use Markdown inside this
-      const message = `✅ Thanks for your message: *"${text}"*\nHave a great day! 👋🏻`;
+      if (text.charAt(0) === "/") {
+        commands(bot,body);
+      } else {
+        // Create a message to send back
+        // We can use Markdown inside this
+        const message = `✅ Thanks for your message: *"${text}"*\nHave a great day! 👋🏻`;
 
-      // Send our new message back in Markdown and
-      // wait for the request to finish
-      console.log(message);
+        // Send our new message back in Markdown and
+        // wait for the request to finish
+        console.log(message);
+      }
       // sendAuthEmail(message)
 
       await bot.sendMessage(id, text, { parse_mode: "Markdown" });
